@@ -19,13 +19,15 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+    // function activityInput ()
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  if ($(".hour").text == time) {
+  if ($(".hour").text() == time) {
     var row = $(".row")
     row.attr("class", "present")
   }
@@ -40,32 +42,28 @@ $(function () {
     var someHour = hourBlocks[i];
     console.log($(someHour).text());
   }
-  if (someHour.text < currentHour) {
-    row.setAttribute("class", "past");
-  } else if (someHour.text > currentHour) {
-    row.setAttribute("class", "future");
-  } else {
-    row.setAttribute("class", "present");
-  }
+  // if (someHour.text < currentHour) {
+  //   row.setAttribute("class", "past");
+  // } else if (someHour.text > currentHour) {
+  //   row.setAttribute("class", "future");
+  // } else {
+  //   row.setAttribute("class", "present");
+  // }
+
+  // ?convention pulled from act10 $('input[name="shopping-input"]').val();
+  // var hourValue = $('div[data="hourValue"]').text();
+  // console.log($(hourValue).text());
 
 
   // Variable for the data-hour numberic value (24h clock)
   // var hourValue = $(dataset.attr("hourValue"));
   //   console.log(hourValue);
 
-  // if (())
+
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // // TODO: Add code to display the current date in the header of the page.
-  // var today = dayjs();
-  // $('#currentDay').text(today.format('MMMM D, YY'))
-
-  // setInterval(function () {
-  //   var time = dayjs().format('h:mm a');
-  //   $('#currentTime').text(time);
-  // }, 10000)
-
+  
 });
