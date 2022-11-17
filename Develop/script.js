@@ -6,7 +6,7 @@ $(function () {
   var today = dayjs();
   $('#currentDay').text(today.format('MMMM D, YY'))
 
-  var time = dayjs().format('HH:mm')
+  var time = dayjs().format('h:mm a')
   // setInterval(function () {
   // var time = dayjs().format('h:mm a');
   $('#currentTime').text(time);
@@ -19,7 +19,7 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // var activityInput = $("textarea")
+  var activityInput = $("textarea")
   // var saveButton = $("saveBtn")
   // var savedActivities = JSON.parse(localStorage.getItem("savedActivities"))
 
@@ -39,30 +39,34 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  if ($(".hour").text() == time) {
-    var row = $(".row")
-    row.attr("class", "present")
-  }
+  // if ($(".hour").text() == time) {
+  //   var row = $(".row")
+  //   row.attr("class", "present")
+  // }
   var currentHour = dayjs().format("H");
   console.log(currentHour);
 
   var hourBlocks = $(".hour");
   console.log(hourBlocks);
+  var description =$("description")
 
   // FOR loop to check each hour & read text content in console log
   for (var i = 0; i < hourBlocks.length; i++) {
     var someHour = hourBlocks[i];
-    console.log($(someHour).text());
+    // console.log($(someHour).text());
+    console.log($(someHour).attr("data-hourValue"));
+    // var row = $(".row")
+    var color = $(".description")
+
+  //   if ($(someHour).attr('data-hourValue') < currentHour) {
+  //     $(color).attr("class", "past");
+  //   } else if ($(someHour).attr('data-hourValue') > currentHour) {
+  //     $(color).attr("class", "future");
+  //   } else {
+  //     $(color).attr("class", "present");
+  //   }
   }
 
-  console.log($(someHour).attr("data-hourValue"));
-  // if (someHour.text < currentHour) {
-  //   row.setAttribute("class", "past");
-  // } else if (someHour.text > currentHour) {
-  //   row.setAttribute("class", "future");
-  // } else {
-  //   row.setAttribute("class", "present");
-  // }
 
   // ?convention pulled from act10 $('input[name="shopping-input"]').val();
   // var hourValue = $('div[data="hourValue"]').text();
