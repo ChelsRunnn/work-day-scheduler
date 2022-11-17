@@ -2,6 +2,16 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  // TODO: Add code to display the current date in the header of the page.
+  var today = dayjs();
+  $('#currentDay').text(today.format('MMMM D, YY'))
+
+  var time = dayjs().format('HH:mm')
+  // setInterval(function () {
+  // var time = dayjs().format('h:mm a');
+  $('#currentTime').text(time);
+  // }, 10000)
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -15,9 +25,47 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
+  if ($(".hour").text == time) {
+    var row = $(".row")
+    row.attr("class", "present")
+  }
+  var currentHour = dayjs().format("H");
+  console.log(currentHour);
+
+  var hourBlocks = $(".hour");
+  console.log(hourBlocks);
+
+  // FOR loop to check each hour & read text content in console log
+  for (var i = 0; i < hourBlocks.length; i++) {
+    var someHour = hourBlocks[i];
+    console.log($(someHour).text());
+  }
+  if (someHour.text < currentHour) {
+    row.setAttribute("class", "past");
+  } else if (someHour.text > currentHour) {
+    row.setAttribute("class", "future");
+  } else {
+    row.setAttribute("class", "present");
+  }
+
+
+  // Variable for the data-hour numberic value (24h clock)
+  // var hourValue = $(dataset.attr("hourValue"));
+  //   console.log(hourValue);
+
+  // if (())
+
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
+  // // TODO: Add code to display the current date in the header of the page.
+  // var today = dayjs();
+  // $('#currentDay').text(today.format('MMMM D, YY'))
+
+  // setInterval(function () {
+  //   var time = dayjs().format('h:mm a');
+  //   $('#currentTime').text(time);
+  // }, 10000)
+
 });
