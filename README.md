@@ -20,7 +20,7 @@ N/A
 
 ## Usage
 
-![Homepage-Screenshot](assets/)
+![Homepage-Screenshot](./Assets/WorkDaySchedulerScreenshot.png)
 
 Test your knowledge; take the quiz [here](https://chelsrunnn.github.io/work-day-scheduler/)
 
