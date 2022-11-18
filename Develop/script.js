@@ -4,7 +4,7 @@
 $(function () {
   // TODO: Add code to display the current date in the header of the page.
   var today = dayjs();
-  $('#currentDay').text(today.format('MMMM D, YY'))
+  $('#currentDay').text(today.format('MMMM D, YYYY'))
 
   var time = dayjs().format('h:mm a')
   // setInterval(function () {
@@ -19,63 +19,70 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  var activityInput = $("textarea")
-  // var saveButton = $("saveBtn")
-  // var savedActivities = JSON.parse(localStorage.getItem("savedActivities"))
+  // * This section works! save button clicks can disinguish which row/botton is clicked
+  var saveButton = $(".saveBtn")
+  console.log(saveButton);
+  // var activityInput = $("textarea")
 
-  // saveButton.on("click", function(event) {
-  //   event.preventDefault();
+  saveButton.on("click", function (event) {
+    console.log($(event.target).parent().children().eq(0).attr("data-hourValue"));
+    var activityInput = $(event.target).parent().children().eq(1).val();
+    var activityHour = $(event.target).parent().children().eq(0).attr("data-hourValue");
+    localStorage.setItem(activityHour, activityInput);
 
-  //   var items = activityInput.value
+   
+    saveEntry()
 
-  //   savedActivities.push(items);
+  })
 
-  //   localStorage.setItem("savedActivities", JSON.stringify(savedActivities);)
-  // })
-  
+  function saveEntry() {
+    console.log("hit");
+    // console.log(activityInput.value);
+    // console.log(items);
+  }
+
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  // if ($(".hour").text() == time) {
-  //   var row = $(".row")
-  //   row.attr("class", "present")
-  // }
-  var currentHour = dayjs().format("H");
-  console.log(currentHour);
+  // * This section works!
+  var currentHour = parseInt(dayjs().format("H"));
+  // console.log(currentHour);
 
   var hourBlocks = $(".hour");
-  console.log(hourBlocks);
-  var description =$("description")
+  // console.log(hourBlocks);
+  var textarea = $(".description");
 
   // FOR loop to check each hour & read text content in console log
   for (var i = 0; i < hourBlocks.length; i++) {
     var someHour = hourBlocks[i];
     // console.log($(someHour).text());
-    console.log($(someHour).attr("data-hourValue"));
-    // var row = $(".row")
-    var color = $(".description")
+    // console.log($(someHour).attr("data-hourValue"));
+    var color = $(".description");
+    // console.log(currentHour);
+    // console.log($(someHour).attr("data-hourValue"));
+    var hourBlockNumeric = parseInt($(someHour).attr("data-hourValue"))
+    // console.log(hourBlockNumeric);
+    currentHour = 13; 
+    // console.log(textarea);
 
-  //   if ($(someHour).attr('data-hourValue') < currentHour) {
-  //     $(color).attr("class", "past");
-  //   } else if ($(someHour).attr('data-hourValue') > currentHour) {
-  //     $(color).attr("class", "future");
-  //   } else {
-  //     $(color).attr("class", "present");
-  //   }
-  }
+    if (hourBlockNumeric < currentHour) {
+      $(textarea[i]).addClass("past");
+      // console.log("hit");
+    } else if (hourBlockNumeric > currentHour) {
+      $(textarea[i]).addClass("future");
+      // console.log("greater");
+    } else {
+      $(textarea[i]).addClass("present");
+      // console.log("same");
+    }
+    }
 
 
-  // ?convention pulled from act10 $('input[name="shopping-input"]').val();
-  // var hourValue = $('div[data="hourValue"]').text();
-  // console.log($(hourValue).text());
-
-
-  // Variable for the data-hour numberic value (24h clock)
-  // var hourValue = $(dataset.attr("hourValue"));
-  //   console.log(hourValue);
 
 
 
@@ -83,5 +90,32 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  
+  // acting as an array, index starts at 0
+    var textAreaEl = $(".description");
+    console.log(textAreaEl);
+
+  for (var i = 9; i < 20; i++) {
+    // var element = array[i];
+    console.log(localStorage.getItem([i]));
+    var note = localStorage.getItem([i]);
+
+    if (note !== null) {
+      // textAreaEl[i-9].value
+    }
+
+  }
+  // localStorage.getItem("9")
+  // localStorage.getItem("10")
+  // localStorage.getItem("11")
+  // localStorage.getItem("12")
+  // localStorage.getItem("13")
+  // localStorage.getItem("14")
+  // localStorage.getItem("15")
+  // localStorage.getItem("16")
+  // localStorage.getItem("17")
+  // localStorage.getItem("18")
+
+
 });
+
+
