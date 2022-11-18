@@ -22,7 +22,7 @@ N/A
 
 ![Homepage-Screenshot](./Assets/WorkDaySchedulerScreenshot.png)
 
-Test your knowledge; take the quiz [here](https://chelsrunnn.github.io/work-day-scheduler/)
+Get organized, use the scheduler [here](https://chelsrunnn.github.io/work-day-scheduler/)
 
 
 ## Credits
