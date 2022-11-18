@@ -31,17 +31,15 @@ $(function () {
     localStorage.setItem(activityHour, activityInput);
 
    
-    saveEntry()
+    // saveEntry()
 
   })
 
-  function saveEntry() {
-    console.log("hit");
+  // function saveEntry() {
+    // console.log("hit");
     // console.log(activityInput.value);
     // console.log(items);
-  }
-
-
+  // }
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -49,7 +47,7 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   //
-  // * This section works!
+  // * This section works
   var currentHour = parseInt(dayjs().format("H"));
   // console.log(currentHour);
 
@@ -67,7 +65,7 @@ $(function () {
     // console.log($(someHour).attr("data-hourValue"));
     var hourBlockNumeric = parseInt($(someHour).attr("data-hourValue"))
     // console.log(hourBlockNumeric);
-    currentHour = 13; 
+    // currentHour = 13; 
     // console.log(textarea);
 
     if (hourBlockNumeric < currentHour) {
@@ -82,10 +80,6 @@ $(function () {
     }
     }
 
-
-
-
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
@@ -94,28 +88,15 @@ $(function () {
     var textAreaEl = $(".description");
     console.log(textAreaEl);
 
-  for (var i = 9; i < 20; i++) {
+    for (var i = 9; i < 20; i++) {
     // var element = array[i];
     console.log(localStorage.getItem([i]));
     var note = localStorage.getItem([i]);
 
     if (note !== null) {
-      // textAreaEl[i-9].value
+      textAreaEl[i-9].value = note;
     }
-
   }
-  // localStorage.getItem("9")
-  // localStorage.getItem("10")
-  // localStorage.getItem("11")
-  // localStorage.getItem("12")
-  // localStorage.getItem("13")
-  // localStorage.getItem("14")
-  // localStorage.getItem("15")
-  // localStorage.getItem("16")
-  // localStorage.getItem("17")
-  // localStorage.getItem("18")
-
-
 });
 
 

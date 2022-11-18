@@ -1,6 +1,15 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Playfair', sans-serif;
   font-size: 16px;
+  background-color: #feeaf2;
+}
+
+header {
+  background-color: #f5b5ce;
+}
+
+h1 {
+  font-family: 'Playfair Display SC', sans-serif;
 }
 
 textarea {
@@ -14,6 +23,9 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  font-family: 'Handlee', sans-serif;
+  font-size: 20px;
+  padding-top: 20px;
 }
 
 .time-block {
@@ -27,7 +39,9 @@ textarea {
 .hour {
   background-color: #f5b5ce;
   color: #670329;
-  border-top: 1px dashed #000000;
+  border-top: 1px #000000;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .past {
